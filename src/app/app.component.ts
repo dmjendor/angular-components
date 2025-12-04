@@ -3,6 +3,7 @@ import { HeaderComponent } from './header/header.component';
 import { ServerStatusComponent } from './dashboards/server-status/server-status.component';
 import { TrafficComponent } from './dashboards/traffic/traffic.component';
 import { TicketsComponent } from './dashboards/tickets/tickets.component';
+import { DashboardItemComponent } from './dashboards/dashboard-item/dashboard-item.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { TicketsComponent } from './dashboards/tickets/tickets.component';
     ServerStatusComponent,
     TrafficComponent,
     TicketsComponent,
+    DashboardItemComponent,
   ],
 })
 export class AppComponent {}
