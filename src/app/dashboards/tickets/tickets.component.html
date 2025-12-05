@@ -1,3 +1,16 @@
+<div>
+  <ul>
+    @for (ticket of tickets; track ticket.id) {
+    <!-- angular 17+ otherwise ngFor -->
+    <li>
+      <!-- {{ $first }} - {{ $last }}  {{ $odd }} {{ $even }} {{$count}} -->
+      <app-ticket />
+    </li>
+    } @empty {
+    <p>No tickets available.</p>
+    }
+  </ul>
+</div>
 <div id="new-ticket">
-  <app-new-ticket></app-new-ticket>
+  <app-new-ticket (add)="onAdd($event)"></app-new-ticket>
 </div>
