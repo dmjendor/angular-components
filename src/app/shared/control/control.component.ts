@@ -1,4 +1,14 @@
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  contentChild,
+  ContentChild,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  inject,
+  input,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -7,8 +17,30 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
   encapsulation: ViewEncapsulation.None,
-  host: { class: 'control' }, // adds key/value pairs as attributes to the host element
+  host: {
+    class: 'control',
+    '(click)': 'onClick()',
+  }, // adds key/value pairs as attributes to the host element
 })
 export class ControlComponent {
+  // @HostBinding('class') className = 'control'; // discouraged in new versions
+  // @HostListener('click') onClick() {
+  //   console.log('Clicked');
+  // }
+
+  // To access Projected Content use this
+  // @ContentChild('input') private inputControl?: ElementRef<
+  //   HTMLInputElement | HTMLTextAreaElement
+  // >;
+
+  private inputControl =
+    contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+  private el = inject(ElementRef);
+  onClick() {
+    console.log('Clicked');
+    console.log(this.el);
+    console.log(this.inputControl());
+  }
   label = input.required<string>();
 }
