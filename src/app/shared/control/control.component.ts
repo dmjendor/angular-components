@@ -41,10 +41,10 @@ export class ControlComponent {
   private el = inject(ElementRef);
 
   constructor() {
-    afterRender(() => console.log('After render'));
-    afterNextRender(() => {
-      console.log('After next render');
-    });
+    // afterRender(() => console.log('After render'));
+    // afterNextRender(() => {
+    //   console.log('After next render');
+    // });
   }
   onClick() {
     console.log('Clicked');

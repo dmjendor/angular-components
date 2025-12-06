@@ -27,6 +27,8 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
   private formElement = viewChild.required<HTMLFormElement>('form'); // after angular 17.3
   // @Output() add = new EventEmitter
   add = output<TicketData>();
+  enteredTitle = '';
+  enteredText = '';
 
   ngOnInit() {
     // not guaranteed to have the values from view child
@@ -38,9 +40,14 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
     console.log('After view init', this.formElement());
   }
 
-  onSubmit(title: string, ticketText: string) {
-    this.formElement()?.['nativeElement'].reset();
-    const ticketData: TicketData = { title: title, ticketText: ticketText };
+  onSubmit() {
+    const ticketData: TicketData = {
+      title: this.enteredTitle,
+      ticketText: this.enteredText,
+    };
     this.add.emit(ticketData);
+    // this.formElement()?.['nativeElement'].reset();
+    this.enteredTitle = '';
+    this.enteredText = '';
   }
 }

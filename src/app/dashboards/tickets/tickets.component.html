@@ -4,7 +4,7 @@
     <!-- angular 17+ otherwise ngFor -->
     <li>
       <!-- {{ $first }} - {{ $last }}  {{ $odd }} {{ $even }} {{$count}} -->
-      <app-ticket />
+      <app-ticket [ticket]="ticket" (close)="onCloseTicket(ticket.id)" />
     </li>
     } @empty {
     <p>No tickets available.</p>
