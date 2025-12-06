@@ -73,12 +73,3 @@ npm test
 
 **License**
 
-- This repository does not include a license by default. Add a `LICENSE` file if you wish to apply an open-source license.
-
----
-
-If you'd like, I can also:
-
-- add a short CONTRIBUTING.md with Git workflow tips,
-- add a LICENSE file,
-- or run tests/formatting locally and report results.
